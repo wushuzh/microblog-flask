@@ -7,7 +7,7 @@ from werkzeug.urls import url_parse
 from datetime import datetime
 from app.forms import ResetPasswordRequestForm, ResetPasswordForm
 from app.email import send_password_reset_email
-from flask_babel import get_locale
+from flask_babel import _, get_locale
 
 
 @app.before_request
@@ -27,7 +27,7 @@ def index():
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
-        flash('Your post is now live!')
+        flash(_('Your post is now live!'))
         return redirect(url_for('index'))
 
     page = request.args.get('page', 1, type=int)
