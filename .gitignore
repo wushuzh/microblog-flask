@@ -2,6 +2,7 @@ venv
 *.pyc
 app.db
 logs
+.env
 
 # Translations
 *.mo
